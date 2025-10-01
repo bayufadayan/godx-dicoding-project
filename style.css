@@ -394,7 +394,7 @@ main {
     z-index: 1;
 }
 
-.emperor-desc figure{
+.emperor-desc figure {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -487,6 +487,176 @@ main {
     border: #000 solid 1px;
     border-radius: 100px;
     text-align: center;
+}
+
+.imperial-main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.divider {
+    margin-block: 1rem 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.divider .line {
+    position: relative;
+    flex: 1;
+    height: 2px;
+    display: block;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.divider span {
+    display: inline;
+    width: max-content;
+    flex-shrink: 0;
+    padding: 0 1rem;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+.content-container {
+    background-color: khaki;
+    display: flex;
+}
+
+.content-wrapper {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.content-wrapper section {
+    padding: 1.5rem 3rem 3rem 3rem;
+}
+
+.content-wrapper section h2 {
+    color: #F2A316;
+    text-shadow: 0 4px 20px rgba(255, 248, 42, 0.40);
+    font-family: "Libre Baskerville";
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: 15%;
+    text-underline-offset: 12.5%;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+#ages {
+    background: url('assets/backgrounds/ages-section-bg.png');
+    color: white;
+}
+
+.ages-list-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.ages-list-container article {
+    position: relative;
+    overflow: hidden;
+    width: 30%;
+    height: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #FFF;
+}
+
+.ages-list-container article:last-child {
+    visibility: hidden;
+}
+
+.ages-list-container article img {
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.ages-list-container article figure::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(0, 0, 0, 0.60) 84.25%);
+    pointer-events: none;
+}
+
+.ages-list-container article h4  {
+    position: absolute;
+    bottom: 1rem;
+    color: #FFF;
+    text-align: center;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#nobles {
+    position: relative;
+    background-color: #FEF3E2;
+    z-index: 1;
+}
+
+#nobles::after {
+    mix-blend-mode: lighten;
+    background: url('assets/backgrounds/luxury-pattern.png');
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+#nobles>header {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    z-index: 0;
+}
+
+.dropdown-nobles {
+    position: relative;
+    width: fit-content;
+    padding: 0.5rem;
+    display: flex;
+    border: 1px solid #000;
+    border-radius: 100px;
+    cursor: pointer;
+    z-index: 0;
+}
+
+.dropdown-nobles select {
+    border: none;
+    outline: none;
+    /* appearance: none; */
+}
+
+#timeline {
+    flex: 1;
+    background-color: red;
 }
 
 /* Animation */
