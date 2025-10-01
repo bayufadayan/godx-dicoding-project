@@ -100,7 +100,6 @@ main {
 .imperial-banner {
     height: max-content;
     max-width: 100vw;
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,24 +113,31 @@ main {
     height: 85vh;
     overflow: hidden;
 }
+
 .sky-background img {
     height: 100vh !important;
 }
 
-.sky-background img, .cat-background img {
+.sky-background img,
+.cat-background img {
     width: 100%;
     height: auto;
     object-fit: cover;
     object-position: center;
 }
 
-.cat-background {
+.main-cat-wrapper {
     position: relative;
     margin-top: 50vh;
     width: 100%;
+    z-index: 2;
+}
+
+.cat-background {
+    position: relative;
+    width: 100%;
     object-fit: cover;
     object-position: center;
-    z-index: 10;
 }
 
 .cat-background img {
@@ -168,16 +174,319 @@ main {
     color: #234C6A;
 }
 
-.imperial-emperor{
+.polaroid-container {
+    position: absolute;
+    display: flex;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    gap: 2rem;
+}
+
+.polaroid-wrapper {
+    position: relative;
+    width: 50%;
+    height: auto;
+    bottom: -7rem;
+    overflow: hidden;
+}
+
+.polaroid-content {
+    position: absolute;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 4px 50px 0 rgba(255, 255, 255, 0.75);
+    display: none;
+}
+
+#first-polaroid {
+    display: flex;
+    top: 7rem;
+    left: 10rem;
+    transform: rotate(9.997deg);
+}
+
+#second-polaroid {
+    display: flex;
+    bottom: 4rem;
+    left: -3rem;
+    transform: rotate(-6.578deg);
+}
+
+#third-polaroid {
+    display: flex;
+    top: 7rem;
+    right: 7rem;
+    transform: rotate(-13.378deg);
+}
+
+#fourth-polaroid {
+    display: flex;
+    bottom: 4rem;
+    right: -6rem;
+    transform: rotate(7.691deg);
+}
+
+.imperial-emperor {
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin-top: -6rem;
     padding-top: 2rem;
-    background-color: palevioletred;
+    background-image: url('assets/backgrounds/gladiatorium.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
     z-index: -1;
     min-height: 100vh;
+    height: 67rem;
+    /* gap: 3rem; */
+}
+
+.curve-text {
+    position: relative;
+    opacity: 0.75;
+    margin-bottom: 3rem;
+}
+
+.emperor-content-wrapper {
+    position: relative;
+    padding: 0rem 4rem;
+}
+
+.emperor-content-background {
+    position: absolute;
+    justify-self: center;
+    z-index: -1;
+    top: -1rem;
+}
+
+
+.emperor-title {
+    font-family: 'Henny Penny', cursive;
+    font-size: 4.5rem;
+    color: #234C6A;
+    text-shadow: 0 4px 20px #FFF82A;
+    text-align: center;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.emperor-details {
+    display: flex;
+    position: relative;
+    margin-top: 1.5rem;
+    border: 3px solid rgba(250, 177, 47, 0.50);
+    background: #FFF;
+    box-shadow: 0 4px 50px 0 rgba(255, 255, 255, 0.40);
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.emperor-image {
+    position: relative;
+    flex: 1;
+    display: flex;
+    box-sizing: content-box;
+    border: rgba(0, 0, 0, 0.3) solid 2px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.emperor-main-label {
+    position: absolute;
+    bottom: 3rem;
+    right: -2rem;
+    padding: 0.3rem 3rem 0.3rem 1rem;
+    border: 1px solid #FFF;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.30) 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.emperor-spark {
+    position: absolute;
+    fill: #FFA629 !important;
+    stroke-width: 5px;
+    stroke: #FFA629;
+    filter: drop-shadow(0 4px 20px #FFF82A);
+}
+
+#first-spark {
+    top: -3.5rem;
+    right: -3.3rem;
+    transform: rotate(-16.121deg);
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+}
+
+#second-spark {
+    bottom: -3.3rem;
+    left: -3.3rem;
+    transform: rotate(16.121deg);
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+}
+
+.emperor-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.emperor-info>small {
+    opacity: 0.5;
+    font-weight: bold;
+    font-size: large;
+}
+
+.emperor-data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.emperor-data h2 {
+    font-size: 3.3rem;
+    color: #F2A316;
+    text-shadow: 0 4px 20px #FFF82A;
+    font-weight: bold;
+    width: 80%;
+    position: relative;
+}
+
+.emperor-desc {
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 23rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 2px solid #7D7D7D;
+    justify-content: space-between;
+    background-blend-mode: multiply;
+    background-color: white;
+}
+
+.emperor-desc::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        url('assets/backgrounds/emperor-desc-bg.png');
+    pointer-events: none;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.emperor-desc figure{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: -1.5rem;
+}
+
+#top-left-corner {
+    position: absolute;
+    top: -1.2rem;
+    left: -1.55rem;
+}
+
+#top-right-corner {
+    position: absolute;
+    top: -1.2rem;
+    right: -1.55rem;
+    transform: scaleX(-1);
+}
+
+#bottom-left-corner {
+    position: absolute;
+    bottom: -1.2rem;
+    left: -1.55rem;
+    transform: scaleY(-1);
+}
+
+#bottom-right-corner {
+    position: absolute;
+    bottom: -1.2rem;
+    right: -1.55rem;
+    transform: scaleX(-1) scaleY(-1);
+}
+
+.emperor-desc>small {
+    text-align: end;
+    color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    font-weight: bold;
+}
+
+.description-container {
+    position: relative;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.emperor-desc p {
+    font-size: medium;
+    line-height: 1.5;
+    color: #000;
+    z-index: 2;
+}
+
+.emperor-desc p:last-child {
+    margin-bottom: 0;
+}
+
+.emperor-desc-button {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.emperor-desc-button button {
+    border-radius: 100px;
+    border: 1px solid rgba(0, 0, 0, 0.50);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 2;
+    background: transparent;
+}
+
+.emperor-desc-button button:nth-child(2) img {
+    transform: rotate(180deg);
+}
+
+.emperor-label {
+    opacity: 0.50;
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.emperor-label p {
+    padding: 0.3rem 1rem;
+    border: #000 solid 1px;
+    border-radius: 100px;
+    text-align: center;
 }
 
 /* Animation */
