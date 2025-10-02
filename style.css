@@ -1465,6 +1465,28 @@ footer {
     display: none !important;
 }
 
+.rock-decorative {
+    z-index: 2;
+    position: absolute;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.rock-decorative-top {
+    top: calc(200vh - 250px);
+    left: -3rem;
+    filter: drop-shadow(-57px -45px 10px rgba(0, 0, 0, 0.25));
+    animation: floating-rock-1 4s ease-in-out infinite;
+}
+
+.rock-decorative-bottom {
+    transform: scale(0.6);
+    top: calc(310vh);
+    right: -6rem;
+    filter: drop-shadow(-57px 45px 10px rgba(0, 0, 0, 0.25));
+    animation: floating-rock-2 4s ease-in-out infinite;
+}
+
 /* Animation */
 @keyframes spin-upscale {
     0% {
@@ -1477,5 +1499,33 @@ footer {
 
     100% {
         transform: scale(1) rotate(360deg);
+    }
+}
+
+@keyframes floating-rock-1 {
+    0% {
+        transform: translateY(0) scale(0.9) rotate(180deg);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.1) rotate(170deg);
+    }
+
+    100% {
+        transform: translateY(0) scale(0.9) rotate(180deg);
+    }
+}
+
+@keyframes floating-rock-2 {
+    0% {
+        transform: translateY(0) scale(0.6) rotate(deg);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(0.8) rotate(10deg);
+    }
+
+    100% {
+        transform: translateY(0) scale(0.6) rotate(0deg);
     }
 }
