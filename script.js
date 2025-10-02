@@ -13,3 +13,20 @@ window.addEventListener('scroll', function () {
         title.style.top = '35vh';
     }
 });
+
+const dropdown = document.getElementById('dropdown');
+const selected = dropdown.querySelector('.selected');
+const hiddenInput = dropdown.querySelector('input');
+const list = dropdown.querySelector('.dropdown-list');
+
+dropdown.addEventListener('click', () => {
+    list.style.display = list.style.display === 'block' ? 'none' : 'block';
+});
+
+list.querySelectorAll('li').forEach(item => {
+    item.addEventListener('click', () => {
+        selected.textContent = item.textContent;
+        hiddenInput.value = item.dataset.value;
+        list.style.display = 'none';
+    });
+});
