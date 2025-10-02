@@ -1525,9 +1525,12 @@ footer {
 
 /* Media Query */
 @media screen and (max-width: 768px) {
+
+    html,
     body {
-        width: 100%;
-        overflow-x: hidden;
+        max-width: 100vw !important;
+        width: 100vew !important;
+        overflow-x: hidden !important;
     }
 
     header {
@@ -1706,7 +1709,6 @@ footer {
     .emperor-image {
         width: 100%;
         height: 20rem;
-        background-color: #000;
     }
 
     .emperor-image>img {
@@ -1715,6 +1717,12 @@ footer {
         object-fit: cover;
         object-position: top;
         overflow: hidden;
+    }
+
+    .emperor-main-label {
+        right: 0;
+        border-right: none;
+        padding: 0.3rem;
     }
 
     .emperor-main-label span {
@@ -1762,11 +1770,186 @@ footer {
         flex-wrap: wrap;
     }
 
+    .divider {
+        margin-block: 1rem;
+    }
+
     .content-container {
         flex-direction: column;
     }
 
-    .content-wrapper, #timeline {
+    .content-wrapper,
+    #timeline {
         width: 100%;
+    }
+
+    .content-wrapper section {
+        padding: 1rem;
+        padding-top: 2rem;
+    }
+
+    .content-wrapper section h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-top: 0rem;
+        margin-bottom: 2rem;
+    }
+
+    .ages-list-container {
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .ages-list-container article {
+        width: calc(50% - 9px);
+    }
+
+    .ages-list-container article h4 {
+        font-size: 1.4rem;
+    }
+
+    #nobles>header {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+        gap: 0.6rem;
+    }
+
+    #nobles>header>h2 {
+        margin-bottom: 1rem;
+    }
+
+    #nobles>figure {
+        transform: scale(0.7) rotate(40.121deg);
+        top: -10rem;
+        right: -10rem;
+        opacity: 0.4;
+    }
+
+    #nobles p {
+        width: 100%;
+        text-align: center;
+    }
+
+    .philosophy-content {
+        flex-direction: column-reverse;
+        gap: 3rem;
+    }
+
+    .philosophy-card figure {
+        width: 100%;
+        height: 55vh;
+    }
+
+    .philosophy-card figure img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .philosophy-title {
+        align-self: center;
+    }
+
+    .philosophy-title h3,
+    .philosophy-desc p {
+        text-align: center;
+    }
+
+    .philosophy-prediction {
+        border-bottom: 4px solid #F2A316;
+        border-left: none;
+    }
+
+    .philosophy-generate button {
+        margin-bottom: 1.5rem;
+    }
+
+    #timeline {
+        display: none;
+    }
+
+    #archive-decor-1 {
+        transform: rotate(-168.762deg) scale(0.7);
+        top: -14rem;
+        left: -15rem;
+    }
+
+    #archive-decor-2 {
+        right: -13rem;
+    }
+
+    .archive-photos {
+        width: 50%;
+    }
+
+    .first-archive,
+    .third-archive {
+        left: -10rem;
+    }
+
+    .second-archive {
+        left: -13rem;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        padding-inline: 1rem;
+        padding-block: 1rem;
+        height: fit-content;
+    }
+
+    .footer-top h1 {
+        font-size: 2.5rem;
+        width: 90%;
+        text-align: center;
+        align-self: center;
+    }
+
+    .footer-left p,
+    .footer-right p {
+        line-height: 1.8;
+        width: 100%;
+        text-align: center;
+        padding-inline: 1rem;
+    }
+
+    .content-top-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .social-list a {
+        background-color: rgba(0, 0, 0, 0.70);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        border-radius: 50%;
+        padding: 0.6rem;
+    }
+
+    .content-bottom-section {
+        align-self: center;
+    }
+
+    .footer-left {
+        gap: 2rem;
+    }
+
+    .footer-right {
+        gap: 1rem;
+    }
+
+    .footer-right p {
+        font-size: 10px !important;
+    }
+
+    .footer-right h1 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .footer-bottom p {
+        font-size: 12px;
     }
 }
