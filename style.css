@@ -9,13 +9,14 @@
 }
 
 body {
+    max-width: 100vw;
     background-color: #F7F4EF;
     overflow-x: hidden;
 }
 
 header {
     position: fixed;
-    width: 100%;
+    width: 100vw;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -95,13 +96,6 @@ nav {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-
-/* Main */
-main {
-    /* background-color: #fff700;
-    z-index: -2; */
-}
-
 .imperial-banner {
     height: max-content;
     max-width: 100vw;
@@ -114,7 +108,7 @@ main {
 .sky-background {
     position: fixed;
     display: flex;
-    width: 100%;
+    width: 100vw;
     height: 85vh;
     overflow: hidden;
 }
@@ -242,7 +236,7 @@ main {
     margin-top: -6rem;
     padding-top: 2rem;
     background-image: url('assets/backgrounds/gladiatorium.png');
-    background-size: 100% auto;
+    background-size: cover;
     background-repeat: no-repeat;
     z-index: -1;
     min-height: 100vh;
@@ -1487,7 +1481,6 @@ footer {
     animation: floating-rock-2 4s ease-in-out infinite;
 }
 
-/* Animation */
 @keyframes spin-upscale {
     0% {
         transform: scale(1) rotate(0deg);
@@ -1527,5 +1520,253 @@ footer {
 
     100% {
         transform: translateY(0) scale(0.6) rotate(0deg);
+    }
+}
+
+/* Media Query */
+@media screen and (max-width: 768px) {
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    header {
+        width: 100vw;
+        margin: 0;
+        padding-block: 1rem;
+        padding-inline: 2rem;
+        position: fixed;
+        justify-content: center;
+    }
+
+    nav {
+        position: absolute;
+        /* display: flex; */
+        display: none;
+        top: 100%;
+        width: 100%;
+    }
+
+    .nav-list {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .nav-item {
+        display: flex;
+        width: 100%;
+        padding-inline: 3rem;
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sky-background {
+        position: absolute;
+        display: flex;
+        width: 100vw;
+        height: 80vh;
+        overflow: hidden;
+    }
+
+    .hero-title {
+        width: 100vw;
+        gap: 0rem;
+        top: 20%;
+        display: none;
+        /* Sementara */
+    }
+
+    .hero-title span {
+        font-family: "Henny Penny", cursive;
+        font-weight: normal;
+        color: #FEF3E2;
+        font-size: 3.4rem;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .main-cat-wrapper {
+        position: relative;
+        margin-top: 65vh;
+        width: 100%;
+        z-index: 2;
+    }
+
+    .polaroid-container {
+        top: -6rem;
+    }
+
+    .polaroid-wrapper {
+        top: 0;
+        overflow: visible;
+    }
+
+    .polaroid-content {
+        width: 100%;
+        height: 100%;
+    }
+
+    #first-polaroid,
+    #second-polaroid,
+    #third-polaroid,
+    #fourth-polaroid {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    #first-polaroid {
+        top: 0;
+        left: -1rem;
+        transform: rotate(9.997deg) scale(0.7);
+    }
+
+
+    #second-polaroid {
+        bottom: -10rem;
+        left: -3rem;
+        transform: rotate(-6.578deg) scale(0.7);
+    }
+
+    #third-polaroid {
+        top: 0;
+        right: -2rem;
+        transform: rotate(-13.378deg) scale(0.7);
+    }
+
+    #fourth-polaroid {
+        bottom: -10rem;
+        right: -3rem;
+        transform: rotate(7.691deg) scale(0.7);
+    }
+
+    .imperial-emperor {
+        width: 100vw;
+        margin-top: -2.85rem;
+        height: auto;
+        background-size: cover;
+    }
+
+    .curve-text {
+        display: none;
+    }
+
+    .emperor-content-wrapper {
+        width: 100vw;
+        padding: 0rem 1rem;
+    }
+
+
+    .rock-decorative-top {
+        display: none;
+    }
+
+    .rock-decorative-bottom {
+        display: none;
+    }
+
+    .emperor-content-background {
+        background-color: #000;
+        width: 93%;
+        height: 100%;
+        justify-self: center;
+        z-index: -1;
+        top: 0;
+        display: none;
+    }
+
+    .emperor-content-background img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .emperor-title {
+        margin-top: 4rem;
+        width: 100%;
+        font-size: 3rem;
+        line-height: 1;
+    }
+
+    .emperor-details {
+        position: relative;
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .emperor-image {
+        width: 100%;
+        height: 20rem;
+        background-color: #000;
+    }
+
+    .emperor-image>img {
+        width: 100%;
+        height: 20rem;
+        object-fit: cover;
+        object-position: top;
+        overflow: hidden;
+    }
+
+    .emperor-main-label span {
+        font-size: medium;
+    }
+
+    .emperor-main-label img {
+        height: 100%;
+        width: auto;
+    }
+
+    .emperor-info {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .emperor-data {
+        justify-content: center;
+    }
+
+    .emperor-data h2 {
+        text-align: center;
+        width: 100%;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .emperor-desc p {
+        font-size: small;
+        text-align: center;
+        width: 100%;
+    }
+
+    .emperor-desc-button {
+        gap: 2rem;
+    }
+
+    .emperor-desc-button button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .emperor-label {
+        font-size: x-small;
+        flex-wrap: wrap;
+    }
+
+    .content-container {
+        flex-direction: column;
+    }
+
+    .content-wrapper, #timeline {
+        width: 100%;
     }
 }
