@@ -126,6 +126,34 @@ nav {
     display: none;
 }
 
+.hourglass {
+    background-color: transparent;
+    border: #fff 1px solid;
+    border-radius: 10px;
+    outline: none;
+    position: absolute;
+    right: 1rem;
+    z-index: 10;
+    padding: 0.4rem 0.5rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    display: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.hourglass figure {
+    transform: rotate(-19.85deg);
+    transition: all 0.3s ease-in-out;
+}
+
+.hourglass figure,
+.hourglass figure img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
 .hamburger-icon-close {
     font-size: 2.2rem;
     line-height: 1;
@@ -776,7 +804,7 @@ nav {
 }
 
 .ages-announcement.appear {
-    animation: fade-in-right-then-hide 2s ease forwards;
+    animation: fade-in-right-then-hide 7s ease forwards;
 }
 
 @keyframes fade-in-right-then-hide {
@@ -1709,6 +1737,15 @@ footer {
     height: 1rem;
     border-radius: 50%;
     background-color: #6D6C6C;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.circle.selected {
+    background-color: #F2A316;
+    transform: scale(1.2);
+    outline: 1.5px solid #F2A316;
+    outline-offset: 2px;
 }
 
 .timeline-label {
@@ -1774,10 +1811,16 @@ footer {
     width: 2px;
     height: auto;
     background-color: #6D6C6C;
+    transition: all 0.3s ease-in-out;
+}
+
+.line-vertical.selected {
+    background-color: #F2A316;
+
 }
 
 .timeline-desc {
-    display: flex;
+    display: none;
     max-width: 100%;
     flex-direction: column;
     flex-wrap: wrap;
@@ -1788,6 +1831,14 @@ footer {
     font-size: small;
     overflow: hidden;
     border-radius: 10px;
+}
+
+.timeline-desc.open {
+    display: flex;
+}
+
+.timeline-content-wrapper li:nth-last-child(1) .line-vertical-container {
+    display: none;
 }
 
 .timeline-desc figure {
@@ -1803,10 +1854,6 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.timeline-detail-hidden {
-    display: none !important;
 }
 
 .rock-decorative {
@@ -1889,6 +1936,45 @@ footer {
     animation: fadeIn 0.8s ease-out forwards;
 }
 
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.modal-coming-soon {
+    position: relative;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #6D6C6C;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.modal-coming-soon button {
+    border: 1px solid #6D6C6C;
+    outline: none;
+    background-color: #234C6A;
+    color: white;
+    padding: 0.7rem 2rem;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
 /* Media Query */
 @media screen and (max-width: 874px) {
 
@@ -1951,7 +2037,8 @@ footer {
         padding-block: 0.6rem;
     }
 
-    .hamburger {
+    .hamburger,
+    .hourglass {
         display: flex;
     }
 
@@ -2312,6 +2399,34 @@ footer {
 
     #timeline {
         display: none;
+        position: fixed;
+        top: 6rem;
+        left: 0;
+        width: calc(100% - 1rem) !important;
+        height: 80vh !important;
+        z-index: 2;
+        background: #F7F4EF;
+        flex: 1;
+        max-width: 100%;
+        padding-block: 1.5rem;
+        padding-inline: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        margin-inline: 0.5rem;
+        border-radius: 20px;
+    }
+
+    #timeline>.header h3 {
+        font-size: 2rem;
+        width: 100%;
+        text-align: center;
+        margin-left: 2rem;
+    }
+
+    .timeline-content-container {
+        border-radius: 10px;
     }
 
     #archive-decor-1 {

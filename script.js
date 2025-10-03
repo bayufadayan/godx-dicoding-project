@@ -87,6 +87,9 @@ window.addEventListener("scroll", () => {
 const hamburger = document.querySelector(".hamburger");
 const hamburgerIcon = document.querySelector(".hamburger-icon");
 const hamburgerIconClose = document.querySelector(".hamburger-icon-close");
+const hourglass = document.querySelector(".hourglass");
+const hourglassIcon = document.querySelector(".hourglass-icon");
+const timeline = document.querySelector("#timeline");
 const nav = document.querySelector("nav");
 
 hamburger.addEventListener("click", () => {
@@ -100,8 +103,27 @@ hamburger.addEventListener("click", () => {
         nav.style.display = "flex";
         hamburgerIcon.style.display = "none";
         hamburgerIconClose.style.display = "flex";
+        hourglass.classList.remove("open");
+        timeline.style.display = "none";
+        hourglassIcon.style.transform = "rotate(-19.85deg)";
     }
 });
+
+hourglass.addEventListener("click", () => {
+    if (hourglass.classList.contains("open")) {
+        hourglass.classList.remove("open");
+        timeline.style.display = "none";
+        hourglassIcon.style.transform = "rotate(-19.85deg)";
+    } else {
+        hourglass.classList.add("open");
+        timeline.style.display = "flex";
+        hourglassIcon.style.transform = "rotate(0)";
+        hamburger.classList.remove("open");
+        nav.style.display = "none";
+        hamburgerIcon.style.display = "flex";
+        hamburgerIconClose.style.display = "none";
+    }
+})
 
 const sparks = document.querySelectorAll('.emperor-spark');
 
@@ -170,3 +192,60 @@ const backCard = document.querySelector('#back-card');
 const frontCard = document.querySelector('#front-card');
 observer4.observe(backCard);
 observer4.observe(frontCard);
+
+const timelineItems = document.querySelectorAll('.timeline-content-wrapper li');
+
+timelineItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const detail = item.querySelector('.timeline-desc');
+        if (detail) {
+            detail.classList.toggle('open');
+        }
+
+        const circle = item.querySelector('.circle');
+        const verticalLine = item.querySelector('.line-vertical');
+
+        if (circle) {
+            circle.classList.toggle('selected');
+        }
+        if (verticalLine) {
+            verticalLine.classList.toggle('selected');
+        }
+    });
+});
+
+const lastItem = timelineItems[timelineItems.length - 1];
+if (lastItem) {
+    const detail = lastItem.querySelector('.timeline-desc');
+    const circle = lastItem.querySelector('.circle');
+    const verticalLine = lastItem.querySelector('.line-vertical');
+
+    if (detail) {
+        detail.classList.add('open');
+    }
+    if (circle) {
+        circle.classList.add('selected');
+    }
+    if (verticalLine) {
+        verticalLine.classList.add('selected');
+    }
+}
+
+const modalButton = document.querySelectorAll('.modal-coming-soon button');
+
+modalButton.forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelector('.modal-overlay').style.display = 'none';
+    });
+});
+
+const sortButton = document.querySelector('.sort-button');
+
+sortButton.addEventListener('click', () => {
+    document.querySelector('.modal-overlay').style.display = 'flex';
+});
+
+const showMoreButton = document.querySelector('.show-more-nobles button');
+showMoreButton.addEventListener('click', () => {
+    document.querySelector('.modal-overlay').style.display = 'flex';
+});
