@@ -10,7 +10,7 @@
 
 body {
     max-width: 100vw;
-    background-color: #F7F4EF;
+    background: linear-gradient(to right, #618094 30%, #c7b9a2 50%, #c7b9a2);
     overflow-x: hidden;
 }
 
@@ -23,6 +23,7 @@ header {
     align-items: center;
     padding: 56px;
     z-index: 10;
+    transition: all 0.3s ease-in-out;
 }
 
 .logo {
@@ -70,8 +71,15 @@ header {
     animation-fill-mode: both;
 }
 
+.logo:hover .logo-spark {
+    animation: none;
+    transform: rotate(0deg);
+    transition: all 0.3s ease-in-out;
+}
+
 nav {
-    display: flex;
+    display: none;
+    transition: all 0.3s ease-in-out;
 }
 
 .nav-list {
@@ -90,10 +98,32 @@ nav {
     padding: 8px 24px;
     border-radius: 100px;
     border: 1px solid white;
+    transition: all 0.3s ease-in-out;
 }
 
 .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: rgba(255, 255, 255, 0.5) 0px 0px 20px 0px;
+    cursor: pointer;
+}
+
+.hamburger {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    position: absolute;
+    left: 1rem;
+    z-index: 10;
+    height: fit-content;
+    padding: 0.2rem 0.5rem;
+    border: #fff 1px solid;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    color: white;
+    align-self: center;
+    display: none;
 }
 
 .imperial-banner {
@@ -199,6 +229,78 @@ nav {
     display: none;
 }
 
+@keyframes polaroidIn1 {
+    from {
+        transform: rotate(9.997deg) translateY(-30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotate(9.997deg) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes polaroidIn2 {
+    from {
+        transform: rotate(-6.578deg) translateY(-30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotate(-6.578deg) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes polaroidIn3 {
+    from {
+        transform: rotate(-13.378deg) translateY(-30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotate(-13.378deg) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes polaroidIn4 {
+    from {
+        transform: rotate(7.691deg) translateY(-30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotate(7.691deg) translateY(0);
+        opacity: 1;
+    }
+}
+
+#first-polaroid,
+#second-polaroid,
+#third-polaroid,
+#fourth-polaroid {
+    opacity: 0;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.show-polaroid-1 {
+    animation: polaroidIn1 0.8s ease-out forwards;
+}
+
+.show-polaroid-2 {
+    animation: polaroidIn2 0.8s ease-out forwards;
+}
+
+.show-polaroid-3 {
+    animation: polaroidIn3 0.8s ease-out forwards;
+}
+
+.show-polaroid-4 {
+    animation: polaroidIn4 0.8s ease-out forwards;
+}
+
 #first-polaroid {
     display: flex;
     top: 7rem;
@@ -272,6 +374,7 @@ nav {
     font-weight: normal;
     text-align: center;
     margin-top: 1.5rem;
+    opacity: 0;
 }
 
 .emperor-details {
@@ -1523,8 +1626,24 @@ footer {
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
 /* Media Query */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 874px) {
 
     html,
     body {
@@ -1536,6 +1655,7 @@ footer {
     header {
         width: 100vw;
         margin: 0;
+        margin-top: -1px;
         padding-block: 1rem;
         padding-inline: 2rem;
         position: fixed;
@@ -1544,10 +1664,18 @@ footer {
 
     nav {
         position: absolute;
-        /* display: flex; */
-        display: none;
         top: 100%;
-        width: 100%;
+        width: auto;
+        background-color: rgba(255, 255 ,255, 100);
+        padding-block: 0.5rem;
+        border-radius: 20px;
+        margin-inline: 1rem;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        margin-top: 10px;
+    }
+
+    .logo {
+        transform: scale(0.9);
     }
 
     .nav-list {
@@ -1557,17 +1685,27 @@ footer {
         flex-wrap: wrap;
         gap: 0.5rem;
         align-items: center;
+        padding-block: 0.5rem;
+        padding-inline: 1rem;
     }
 
     .nav-item {
         display: flex;
         width: 100%;
-        padding-inline: 3rem;
     }
 
     .nav-link {
-        width: 100%;
+        flex: 1;
         text-align: center;
+        color: #000;
+        border: rgba(0, 0, 0, 0.5) solid 1px;
+        border-radius: 15px;
+        font-weight: bold;
+        padding-block: 0.6rem;
+    }
+
+    .hamburger{
+        display: flex;
     }
 
     .sky-background {
@@ -1582,8 +1720,6 @@ footer {
         width: 100vw;
         gap: 0rem;
         top: 20%;
-        display: none;
-        /* Sementara */
     }
 
     .hero-title span {
@@ -1597,7 +1733,7 @@ footer {
 
     .main-cat-wrapper {
         position: relative;
-        margin-top: 65vh;
+        margin-top: 60vh;
         width: 100%;
         z-index: 2;
     }
@@ -1614,6 +1750,54 @@ footer {
     .polaroid-content {
         width: 100%;
         height: 100%;
+    }
+
+    @keyframes polaroidIn1 {
+        from {
+            transform: rotate(9.997deg) scale(0.7) translateY(-30px);
+            opacity: 0;
+        }
+
+        to {
+            transform: rotate(9.997deg) scale(0.7) translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes polaroidIn2 {
+        from {
+            transform: rotate(-6.578deg) scale(0.7) translateY(-30px);
+            opacity: 0;
+        }
+
+        to {
+            transform: rotate(-6.578deg) scale(0.7) translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes polaroidIn3 {
+        from {
+            transform: rotate(-13.378deg) scale(0.7) translateY(-30px);
+            opacity: 0;
+        }
+
+        to {
+            transform: rotate(-13.378deg) scale(0.7) translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes polaroidIn4 {
+        from {
+            transform: rotate(7.691deg) scale(0.7) translateY(-30px);
+            opacity: 0;
+        }
+
+        to {
+            transform: rotate(7.691deg) scale(0.7) translateY(0);
+            opacity: 1;
+        }
     }
 
     #first-polaroid,
@@ -1871,9 +2055,7 @@ footer {
     }
 
     #archive-decor-1 {
-        transform: rotate(-168.762deg) scale(0.7);
-        top: -14rem;
-        left: -15rem;
+        display: none;
     }
 
     #archive-decor-2 {
