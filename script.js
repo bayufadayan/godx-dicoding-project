@@ -374,3 +374,61 @@ if (dropdown) {
         });
     }
 }
+
+// List ramalan
+const predictions = [
+    "Hari ini kamu hampir kaya, tapi batal karena lupa mandi.",
+    "Dompetmu akan gemuk... kalau kamu isi sendiri.",
+    "Keberuntunganmu sedang loading, harap bersabar.",
+    "Semesta mendukungmu, tapi kuotanya tinggal dikit.",
+    "Kucing tetangga sedang merencanakan sesuatu tentangmu.",
+    "Mantanmu tiba-tiba ingat kamu... terus lupa lagi.",
+    "Peluang besar datang, tapi kamu masih rebahan.",
+    "Dompetmu memberi kode keras: isi aku, bang.",
+    "Malam ini kamu akan ketawa gara-gara hal receh.",
+    "Kamu akan menemukan solusi... setelah makan."
+];
+
+// List quote
+const quotes = [
+    "Luck is when Wi-Fi connects in one try.",
+    "Good things come to those who nap.",
+    "If it's meant to be, it will DM you first.",
+    "The universe sees your effort… lalu ngantuk.",
+    "Some days you win, some days you ngelawak.",
+    "Don't chase luck. Chat dulu.",
+    "Your vibe attracts debts and snacks.",
+    "Let it flow, tapi jangan boncengan duit orang.",
+    "Believe in yourself, internet belum tentu.",
+    "Life is short, tapi cicilan panjang."
+];
+const luckBtn = document.querySelector('.philosophy-generate button');
+const tarotCards = document.querySelectorAll('#front-card, #back-card');
+const predictionBox = document.querySelector('.philosophy-prediction p');
+const quoteBox = document.querySelector('.philosophy-quote p');
+
+luckBtn.addEventListener('click', () => {
+    tarotCards.forEach(card => {
+        card.style.opacity = '1';
+        card.style.transform = 'none';
+        card.classList.remove('appear');
+        card.classList.remove('spin-card');
+        void card.offsetWidth;
+        card.classList.add('spin-card');
+    });
+
+    setTimeout(() => {
+        tarotCards.forEach(card => {
+            card.classList.remove('spin-card');
+            card.classList.add('appear');
+        });
+
+        const randomPrediction = predictions[Math.floor(Math.random() * predictions.length)];
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+        predictionBox.textContent = randomPrediction;
+        quoteBox.textContent = randomQuote;
+    }, 1000);
+});
+
+
