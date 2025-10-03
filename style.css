@@ -126,6 +126,12 @@ nav {
     display: none;
 }
 
+.hamburger-icon-close {
+    font-size: 2.2rem;
+    line-height: 1;
+    display: none;
+}
+
 .imperial-banner {
     height: max-content;
     max-width: 100vw;
@@ -389,6 +395,7 @@ nav {
 }
 
 .emperor-image {
+    opacity: 0;
     position: relative;
     flex: 1;
     display: flex;
@@ -419,6 +426,7 @@ nav {
     stroke-width: 5px;
     stroke: #FFA629;
     filter: drop-shadow(0 4px 20px #FFF82A);
+    transition: all 0.3s ease-in-out;
 }
 
 #first-spark {
@@ -439,7 +447,12 @@ nav {
     object-fit: cover;
 }
 
+.emperor-spark.animate {
+    animation: spin-upscale 1.2s ease-out 2;
+}
+
 .emperor-info {
+    opacity: 0;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -599,6 +612,7 @@ nav {
 }
 
 .divider {
+    opacity: 0;
     margin-block: 1rem 2rem;
     width: 100%;
     display: flex;
@@ -667,18 +681,124 @@ nav {
     gap: 2rem;
     flex-wrap: wrap;
     justify-content: space-between;
+    opacity: 0;
+}
+
+.ages-list-container article img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .ages-list-container article {
-    position: relative;
-    overflow: hidden;
+    perspective: 1000px;
     width: 30%;
-    height: 100%;
+    height: 350px;
+    margin-bottom: 2rem;
+    cursor: pointer;
     flex-grow: 0;
     flex-shrink: 0;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.ages-list-container article:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     border: 1px solid #FFF;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-back {
+    position: relative;
+    background-color: red;
+    transform: rotateY(180deg);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.card-back p {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    padding-top: 2.2rem;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-inline: 1rem;
+    background: url('assets/contents/ages-flip-bg.png');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #000;
+}
+
+.ages-announcement {
+    position: absolute;
+    top: -1rem;
+    right: -0.4rem;
+    z-index: 100;
+    padding: 0.3rem 1rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 100px 0px 100px 100px;
+    color: #F2A316;
+    font-size: small;
+    font-weight: bold;
+    font-family: Arial;
+    font-style: italic;
+    width: 40%;
+    text-align: right;
+    opacity: 0;
+}
+
+.ages-announcement.appear {
+    animation: fade-in-right-then-hide 2s ease forwards;
+}
+
+@keyframes fade-in-right-then-hide {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
 }
 
 .ages-list-container article:last-child {
@@ -958,15 +1078,46 @@ nav {
     filter: drop-shadow(0 4px 20px rgba(255, 248, 42, 0.50));
 }
 
+@keyframes mini-spark-float {
+    0% {
+        transform: rotate(-20deg) translateY(0) scale(1);
+    }
+
+    50% {
+        transform: rotate(-30deg) translateY(-0.5rem) scale(1.15);
+    }
+
+    100% {
+        transform: rotate(-20deg) translateY(0) scale(1);
+    }
+}
+
+@keyframes mini-spark-float-2 {
+    0% {
+        transform: rotate(-30deg) translateY(0) scaleX(-1) scale(1);
+    }
+
+    50% {
+        transform: rotate(-40deg) translateY(-0.3rem) scaleX(-1) scale(1.15);
+        ;
+    }
+
+    100% {
+        transform: rotate(-30deg) translateY(0) scaleX(-1) scale(1);
+        ;
+    }
+}
+
 #top-right-spark {
     top: -0.62rem;
     right: -0.57rem;
+    animation: mini-spark-float 3s ease-in-out infinite;
 }
 
 #bottom-left-spark {
     bottom: -0.62rem;
     left: -0.57rem;
-    transform: scaleX(-1) rotate(32.893deg);
+    animation: mini-spark-float-2 3s ease-in-out infinite;
 }
 
 .philosophy-title h3 {
@@ -1036,6 +1187,32 @@ nav {
     text-align: center;
 }
 
+@keyframes button-shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-3px);
+    }
+
+    40% {
+        transform: translateX(3px);
+    }
+
+    60% {
+        transform: translateX(-3px);
+    }
+
+    80% {
+        transform: translateX(3px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
 .philosophy-generate {
     display: flex;
     align-items: center;
@@ -1051,6 +1228,7 @@ nav {
     padding: 0.5rem 2rem;
     color: white;
     font-size: 1.2rem;
+    animation: button-shake 0.6s ease-in-out infinite;
 }
 
 .philosophy-card {
@@ -1074,11 +1252,45 @@ nav {
 .philosophy-card figure #back-card {
     transform: rotate(-6.306deg);
     flex-shrink: 0;
+    opacity: 0;
 }
 
 .philosophy-card figure #front-card {
     transform: rotate(6.227deg);
     flex-shrink: 0;
+    opacity: 0;
+}
+
+#back-card.appear {
+    animation: fade-in-left 1.2s ease forwards;
+}
+
+#front-card.appear {
+    animation: fade-in-right 1.2s ease forwards;
+}
+
+@keyframes fade-in-left {
+    0% {
+        opacity: 0;
+        transform: rotate(0) translateX(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(-6.306deg) translateX(0);
+    }
+}
+
+@keyframes fade-in-right {
+    0% {
+        opacity: 0;
+        transform: rotate(0)translateX(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(6.227deg) translateX(0);
+    }
 }
 
 .imperial-archives {
@@ -1154,8 +1366,9 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 100%;
+    width: 110%;
     z-index: 2;
+    overflow: hidden;
 }
 
 .first-archive,
@@ -1170,9 +1383,10 @@ nav {
 .first-archive img,
 .second-archive img,
 .third-archive img {
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 150px;
     object-fit: cover;
+    flex-shrink: 0
 }
 
 .first-archive,
@@ -1181,7 +1395,40 @@ nav {
 }
 
 .second-archive {
-    left: -8rem;
+    left: 0rem;
+}
+
+.archive-row {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.archive-inner {
+    display: inline-flex;
+    animation: marquee 20s linear infinite;
+}
+
+.first-archive .archive-inner,
+.third-archive .archive-inner {
+    animation-direction: normal;
+}
+
+.second-archive .archive-inner {
+    animation-direction: reverse;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.archive-inner img {
+    margin-right: 1rem;
 }
 
 footer {
@@ -1666,7 +1913,7 @@ footer {
         position: absolute;
         top: 100%;
         width: auto;
-        background-color: rgba(255, 255 ,255, 100);
+        background-color: rgba(255, 255, 255, 100);
         padding-block: 0.5rem;
         border-radius: 20px;
         margin-inline: 1rem;
@@ -1704,7 +1951,7 @@ footer {
         padding-block: 0.6rem;
     }
 
-    .hamburger{
+    .hamburger {
         display: flex;
     }
 
@@ -1874,6 +2121,13 @@ footer {
         height: 100%;
     }
 
+    .emperor-info>small {
+        font-size: small;
+        margin: 0;
+        padding: 0;
+
+    }
+
     .emperor-title {
         margin-top: 4rem;
         width: 100%;
@@ -1921,6 +2175,8 @@ footer {
     .emperor-info {
         justify-content: center;
         align-items: center;
+        gap: 0.5rem;
+        margin-top: -10px;
     }
 
     .emperor-data {
@@ -1977,6 +2233,10 @@ footer {
         text-align: center;
         margin-top: 0rem;
         margin-bottom: 2rem;
+    }
+
+    .ages-list-container article {
+        height: 250px;
     }
 
     .ages-list-container {
@@ -2062,17 +2322,31 @@ footer {
         right: -13rem;
     }
 
+    .imperial-archives p {
+        width: 100%;
+        padding-inline: 1rem;
+        font-size: small;
+        line-height: normal;
+    }
+
     .archive-photos {
-        width: 50%;
+        width: 100%;
     }
 
     .first-archive,
     .third-archive {
-        left: -10rem;
+        left: 0rem;
     }
 
     .second-archive {
-        left: -13rem;
+        left: 0rem;
+    }
+
+    .first-archive img,
+    .second-archive img,
+    .third-archive img {
+        width: 150px;
+        height: 120px;
     }
 
     .footer-top {

@@ -1,0 +1,87 @@
+main {
+    max-width: 900px;
+    margin: 5rem auto;
+    padding: 0rem;
+    position: relative;
+    background-color: #FEF3E2;
+    z-index: 1;
+    overflow: hidden;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+main::after {
+    mix-blend-mode: lighten;
+    background: url('assets/backgrounds/luxury-pattern.png');
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.back-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #f2a316;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 1rem;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #d18b0c;
+}
+
+.banner {
+    position: relative;
+    background-color: #002513;
+    color: #fff;
+    padding: 4rem 1rem 3rem 1rem !important;
+    text-align: center;
+    font-size: 3rem !important;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    z-index: 1;
+    overflow: hidden;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner::after {
+    content: "";
+    mix-blend-mode: hard-light;
+    background: url('assets/backgrounds/gladiatorium.png');
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+article {
+    padding-inline: 1rem;
+    margin-bottom: 2rem;
+}
+
+article h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #f2a316;
+}
+
+article p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1rem;
+}

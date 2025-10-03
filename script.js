@@ -85,15 +85,88 @@ window.addEventListener("scroll", () => {
 });
 
 const hamburger = document.querySelector(".hamburger");
+const hamburgerIcon = document.querySelector(".hamburger-icon");
+const hamburgerIconClose = document.querySelector(".hamburger-icon-close");
 const nav = document.querySelector("nav");
 
 hamburger.addEventListener("click", () => {
     if (hamburger.classList.contains("open")) {
         hamburger.classList.remove("open");
         nav.style.display = "none";
+        hamburgerIcon.style.display = "flex";
+        hamburgerIconClose.style.display = "none";
     } else {
         hamburger.classList.add("open");
         nav.style.display = "flex";
+        hamburgerIcon.style.display = "none";
+        hamburgerIconClose.style.display = "flex";
     }
 });
 
+const sparks = document.querySelectorAll('.emperor-spark');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+sparks.forEach(spark => {
+    observer.observe(spark);
+});
+
+const emperorInfo = document.querySelector('.emperor-info');
+
+const observer2 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer2.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+observer2.observe(emperorInfo);
+
+const divider = document.querySelector('.divider');
+const emperorImage = document.querySelector('.emperor-image');
+const agesListContainer = document.querySelector('.ages-list-container');
+observer2.observe(divider);
+observer2.observe(emperorImage);
+observer2.observe(agesListContainer);
+
+const agesAnnountcement = document.querySelector('.ages-announcement');
+
+const observer3 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+        } else {
+            entry.target.classList.remove('appear');
+        }
+    });
+}, {
+    threshold: 0.5,
+    rootMargin: "-30% 0px -10% 0px"
+});
+
+
+observer3.observe(agesAnnountcement);
+
+
+const observer4 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+            observer4.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+const backCard = document.querySelector('#back-card');
+const frontCard = document.querySelector('#front-card');
+observer4.observe(backCard);
+observer4.observe(frontCard);
