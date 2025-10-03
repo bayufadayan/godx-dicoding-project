@@ -374,10 +374,9 @@ nav {
     background-image: url('assets/backgrounds/gladiatorium.png');
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: -1;
+    z-index: 0;
     min-height: 100vh;
     height: 67rem;
-    /* gap: 3rem; */
 }
 
 .curve-text {
@@ -610,19 +609,30 @@ nav {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    z-index: 2;
+    z-index: 10;
     background: transparent;
+}
+
+.emperor-desc-button button:hover {
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .emperor-desc-button button:nth-child(2) img {
     transform: rotate(180deg);
 }
 
+.label-wrapper>p {
+    font-size: small;
+    text-align: center;
+    opacity: 0.6;
+    font-style: italic;
+}
+
 .emperor-label {
     opacity: 0.50;
     display: flex;
     gap: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 0.7rem;
 }
 
 .emperor-label p {
@@ -975,6 +985,16 @@ nav {
     flex-direction: column;
     gap: 4rem;
     margin-top: 3rem;
+}
+
+.nobles-pictures figcaption {
+    text-align: center;
+    font-style: italic;
+    margin-top: 0.5rem;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .nobles-pictures .first-line,
@@ -2361,6 +2381,12 @@ footer {
     #nobles p {
         width: 100%;
         text-align: center;
+    }
+
+    .nobles-pictures .first-line,
+    .second-line,
+    .third-line {
+        gap: 4rem;
     }
 
     .philosophy-content {
