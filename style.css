@@ -78,7 +78,6 @@ header {
 }
 
 nav {
-    display: none;
     transition: all 0.3s ease-in-out;
 }
 
@@ -629,10 +628,17 @@ nav {
 }
 
 .emperor-label {
+    display: flex;
+    flex-direction: row;
+    position: relative;
     opacity: 0.50;
     display: flex;
     gap: 1rem;
-    margin-top: 0.7rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .emperor-label p {
@@ -640,6 +646,7 @@ nav {
     border: #000 solid 1px;
     border-radius: 100px;
     text-align: center;
+    width: fit-content;
 }
 
 .imperial-main {
@@ -1737,6 +1744,20 @@ footer {
     position: relative;
     gap: 1rem;
     width: 100%;
+    cursor: pointer !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.timeline-content-wrapper li:hover .timeline-label p {
+    background-color: #F2A316;
+    color: white;
+    border: 1px solid #F2A316;
+    transform: scale(1.1);
+}
+
+.timeline-content-wrapper li:hover .timeline-label .truncate {
+    white-space: normal;
+    overflow: hidden;
 }
 
 .timeline-content-wrapper li h4 {
@@ -1783,6 +1804,7 @@ footer {
     border: 1px solid #6D6C6C;
     background: rgba(0, 0, 0, 0.10);
     flex: 1;
+    transition: all 0.3s ease-in-out;
 }
 
 .truncate {
@@ -2016,6 +2038,7 @@ footer {
     }
 
     nav {
+        display: none;
         position: absolute;
         top: 100%;
         width: auto;
