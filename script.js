@@ -289,7 +289,7 @@ nextBtn.addEventListener("click", () => {
 
 renderPage();
 
-// Data dummy tiap era
+// Dummy data Imperial Nobles
 const noblesData = {
     "the-wild-world-era": {
         description: `
@@ -405,7 +405,7 @@ if (dropdown) {
     }
 }
 
-// List ramalan
+// Ramalan List
 const predictions = [
     "Hari ini kamu hampir kaya, tapi batal karena lupa mandi.",
     "Dompetmu akan gemuk... kalau kamu isi sendiri.",
@@ -419,7 +419,7 @@ const predictions = [
     "Kamu akan menemukan solusi... setelah makan.",
 ];
 
-// List quote
+// Quote List
 const quotes = [
     "Luck is when Wi-Fi connects in one try.",
     "Good things come to those who nap.",
